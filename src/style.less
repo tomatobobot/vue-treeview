@@ -667,7 +667,7 @@
  */
 
 .vue-treeselect__menu-container {
-  position: absolute;
+  // position: absolute;
   left: 0;
   width: 100%;
   overflow: visible;
@@ -687,7 +687,7 @@
   .vertical-padding(@treeselect-menu-padding-y);
 
   display: block;
-  position: absolute;
+  // position: absolute;
   overflow-x: hidden;
   overflow-y: auto;
   // IE9 does not properly handle `width: 100%` with scrollbar when `box-sizing: border-box`
@@ -699,11 +699,11 @@
   -webkit-overflow-scrolling: touch;
 
   .vue-treeselect--open-below & {
-    .border-radius-bottom(@treeselect-border-radius-lg);
-
+    // .border-radius-bottom(@treeselect-border-radius-lg);
+    border-radius: (@treeselect-border-radius-lg);
     top: 0;
     margin-top: (-@treeselect-control-border-width);
-    border-top-color: @treeselect-control-menu-divider-color;
+    // border-top-color: @treeselect-control-menu-divider-color;
     box-shadow: @treeselect-menu-box-shadow;
   }
 

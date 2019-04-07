@@ -1,21 +1,8 @@
-import fuzzysearch from 'fuzzysearch'
+import fuzzysearch from 'fuzzysearch';
+import { ALL, ALL_CHILDREN, ALL_DESCENDANTS, ALL_WITH_INDETERMINATE, ASYNC_SEARCH, BRANCH_PRIORITY, CHECKED, INDETERMINATE, INDEX, LEAF_CHILDREN, LEAF_DESCENDANTS, LEAF_PRIORITY, LEVEL, LOAD_CHILDREN_OPTIONS, LOAD_ROOT_OPTIONS, NO_PARENT_NODE, ORDER_SELECTED, UNCHECKED } from '../constants';
+import { constant, createMap, find, identity, includes, isNaN, isPromise, last as getLast, once, onLeftClick, quickDiff, removeFromArray, scrollIntoView, warning } from '../utils';
 
-import {
-  warning,
-  onLeftClick, scrollIntoView,
-  isNaN, isPromise, once,
-  identity, constant, createMap,
-  quickDiff, last as getLast, includes, find, removeFromArray,
-} from '../utils'
 
-import {
-  NO_PARENT_NODE,
-  UNCHECKED, INDETERMINATE, CHECKED,
-  LOAD_ROOT_OPTIONS, LOAD_CHILDREN_OPTIONS, ASYNC_SEARCH,
-  ALL, BRANCH_PRIORITY, LEAF_PRIORITY, ALL_WITH_INDETERMINATE,
-  ALL_CHILDREN, ALL_DESCENDANTS, LEAF_CHILDREN, LEAF_DESCENDANTS,
-  ORDER_SELECTED, LEVEL, INDEX,
-} from '../constants'
 
 function sortValueByIndex(a, b) {
   let i = 0
@@ -338,7 +325,7 @@ export default {
     instanceId: {
       // Add two trailing "$" to distinguish from explictly specified ids.
       default: () => `${instanceId++}$$`,
-      type: [ String, Number ],
+      type: [String, Number],
     },
 
     /**
@@ -399,7 +386,7 @@ export default {
      */
     matchKeys: {
       type: Array,
-      default: constant([ 'label' ]),
+      default: constant(['label']),
     },
 
     /**
@@ -474,7 +461,7 @@ export default {
       type: String,
       default: 'auto',
       validator(value) {
-        const acceptableValues = [ 'auto', 'top', 'bottom', 'above', 'below' ]
+        const acceptableValues = ['auto', 'top', 'bottom', 'above', 'below']
         return includes(acceptableValues, value)
       },
     },
@@ -579,7 +566,7 @@ export default {
       type: String,
       default: ALL_CHILDREN,
       validator(value) {
-        const acceptableValues = [ ALL_CHILDREN, ALL_DESCENDANTS, LEAF_CHILDREN, LEAF_DESCENDANTS ]
+        const acceptableValues = [ALL_CHILDREN, ALL_DESCENDANTS, LEAF_CHILDREN, LEAF_DESCENDANTS]
         return includes(acceptableValues, value)
       },
     },
@@ -603,7 +590,7 @@ export default {
       type: String,
       default: ORDER_SELECTED,
       validator(value) {
-        const acceptableValues = [ ORDER_SELECTED, LEVEL, INDEX ]
+        const acceptableValues = [ORDER_SELECTED, LEVEL, INDEX]
         return includes(acceptableValues, value)
       },
     },
@@ -637,7 +624,7 @@ export default {
       type: String,
       default: BRANCH_PRIORITY,
       validator(value) {
-        const acceptableValues = [ ALL, BRANCH_PRIORITY, LEAF_PRIORITY, ALL_WITH_INDETERMINATE ]
+        const acceptableValues = [ALL, BRANCH_PRIORITY, LEAF_PRIORITY, ALL_WITH_INDETERMINATE]
         return includes(acceptableValues, value)
       },
     },
@@ -658,7 +645,7 @@ export default {
      * z-index of the menu.
      */
     zIndex: {
-      type: [ Number, String ],
+      type: [Number, String],
       default: 999,
     },
   },
@@ -1023,7 +1010,7 @@ export default {
         isBranch: false,
         isDisabled: false,
         isNew: false,
-        index: [ -1 ],
+        index: [-1],
         level: 0,
         raw,
       }
@@ -1037,10 +1024,10 @@ export default {
       if (this.valueFormat === 'id') {
         return this.multiple
           ? this.value.slice()
-          : [ this.value ]
+          : [this.value]
       }
 
-      return (this.multiple ? this.value : [ this.value ])
+      return (this.multiple ? this.value : [this.value])
         .map(node => this.enhancedNormalizer(node))
         .map(node => node.id)
     },
@@ -1054,7 +1041,7 @@ export default {
 
       const valueArray = this.multiple
         ? Array.isArray(this.value) ? this.value : []
-        : this.value ? [ this.value ] : []
+        : this.value ? [this.value] : []
       const matched = find(
         valueArray,
         node => node && this.enhancedNormalizer(node).id === id
@@ -1204,17 +1191,17 @@ export default {
 
       if (this.disabled) return
 
-      const isClickedOnValueContainer = this.getValueContainer().$el.contains(evt.target)
-      if (isClickedOnValueContainer && !this.menu.isOpen && (this.openOnClick || this.trigger.isFocused)) {
-        this.openMenu()
-      }
+      // const isClickedOnValueContainer = this.getValueContainer().$el.contains(evt.target)
+      // if (isClickedOnValueContainer && !this.menu.isOpen && (this.openOnClick || this.trigger.isFocused)) {
+      //   this.openMenu()
+      // }
 
-      if (this._blurOnSelect) {
-        this.blurInput()
-      } else {
-        // Focus the input or prevent blurring.
-        this.focusInput()
-      }
+      // if (this._blurOnSelect) {
+      //   this.blurInput()
+      // } else {
+      //   // Focus the input or prevent blurring.
+      //   this.focusInput()
+      // }
 
       this.resetFlags()
     }),
@@ -1547,8 +1534,8 @@ export default {
 
     normalize(parentNode, nodes, prevNodeMap) {
       let normalizedOptions = nodes
-        .map(node => [ this.enhancedNormalizer(node), node ])
-        .map(([ node, raw ], index) => {
+        .map(node => [this.enhancedNormalizer(node), node])
+        .map(([node, raw], index) => {
           this.checkDuplication(node)
           this.verifyNodeShape(node)
 
@@ -1571,7 +1558,7 @@ export default {
           this.$set(normalized, 'id', id)
           this.$set(normalized, 'label', label)
           this.$set(normalized, 'level', level)
-          this.$set(normalized, 'ancestors', isRootNode ? [] : [ parentNode ].concat(parentNode.ancestors))
+          this.$set(normalized, 'ancestors', isRootNode ? [] : [parentNode].concat(parentNode.ancestors))
           this.$set(normalized, 'index', (isRootNode ? [] : parentNode.index).concat(index))
           this.$set(normalized, 'parentNode', parentNode)
           this.$set(normalized, 'lowerCased', lowerCased)
