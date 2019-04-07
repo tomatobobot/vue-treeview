@@ -50,7 +50,7 @@ let instanceId = 0
 export default {
   provide() {
     return {
-      // Enable access to the instance of root component of vue-treeselect
+      // Enable access to the instance of root component of vue-treeview
       // across hierarchy.
       instance: this,
     }
@@ -447,7 +447,7 @@ export default {
 
     /**
      * By default (`auto`), the menu will open below the control. If there is not
-     * enough space, vue-treeselect will automatically flip the menu.
+     * enough space, vue-treeview will automatically flip the menu.
      * You can use one of other four options to force the menu to be always opened
      * to specified direction.
      * Acceptable values:
@@ -1395,7 +1395,7 @@ export default {
       if (this.menu.isOpen && scroll) {
         const scrollToOption = () => {
           const $menu = this.getMenu()
-          const $option = $menu.querySelector(`.vue-treeselect__option[data-id="${node.id}"]`)
+          const $option = $menu.querySelector(`.vue-treeview__option[data-id="${node.id}"]`)
           if ($option) scrollIntoView($menu, $option)
         }
 
