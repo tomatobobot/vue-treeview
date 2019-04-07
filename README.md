@@ -1,11 +1,11 @@
-# vue-treeselect
-[![npm](https://badgen.now.sh/npm/v/@riophae/vue-treeselect)](https://www.npmjs.com/package/@riophae/vue-treeselect) [![Build](https://badgen.now.sh/circleci/github/riophae/vue-treeselect)](https://circleci.com/gh/riophae/vue-treeselect/tree/master) [![Coverage](https://badgen.net/codecov/c/github/riophae/vue-treeselect)](https://codecov.io/gh/riophae/vue-treeselect?branch=master)
-![npm monthly downloads](https://badgen.now.sh/npm/dm/@riophae/vue-treeselect)
-![jsDelivr monthly hits](https://badgen.net/jsdelivr/hits/npm/@riophae/vue-treeselect) [![Known vulnerabilities](https://snyk.io/test/npm/@riophae/vue-treeselect/badge.svg)](https://snyk.io/test/npm/@riophae/vue-treeselect) ![License](https://badgen.net/github/license/riophae/vue-treeselect)
+# vue-treeview
+[![npm](https://badgen.now.sh/npm/v/@tomatobobot/vue-treeview)](https://www.npmjs.com/package/@tomatobobot/vue-treeview) [![Build](https://badgen.now.sh/circleci/github/tomatobobot/vue-treeview)](https://circleci.com/gh/tomatobobot/vue-treeview/tree/master) [![Coverage](https://badgen.net/codecov/c/github/tomatobobot/vue-treeview)](https://codecov.io/gh/tomatobobot/vue-treeview?branch=master)
+![npm monthly downloads](https://badgen.now.sh/npm/dm/@tomatobobot/vue-treeview)
+![jsDelivr monthly hits](https://badgen.net/jsdelivr/hits/npm/@tomatobobot/vue-treeview) [![Known vulnerabilities](https://snyk.io/test/npm/@tomatobobot/vue-treeview/badge.svg)](https://snyk.io/test/npm/@tomatobobot/vue-treeview) ![License](https://badgen.net/github/license/tomatobobot/vue-treeview)
 
 > A multi-select component with nested options support for Vue.js
 
-![Vue-Treeselect Screenshot](https://raw.githubusercontent.com/riophae/vue-treeselect/master/screenshot.png)
+![Vue-TreeView Screenshot](https://raw.githubusercontent.com/tomatobobot/vue-treeview/master/screenshot.png)
 
 ### Features
 
@@ -21,7 +21,7 @@
 
 ### Getting Started
 
-It's recommended to install vue-treeselect via npm, and build your app using a bundler like [webpack](https://webpack.js.org/).
+It's recommended to install vue-treeview via npm, and build your app using a bundler like [webpack](https://webpack.js.org/).
 
 ```bash
 npm install --save @riophae/vue-treeselect
