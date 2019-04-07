@@ -4,12 +4,12 @@ const shallowEqual = require('shallow-equal/arrays')
 const config = require('../config')
 
 const expectedDistFiles = [
-  'vue-treeselect.js',
-  'vue-treeselect.js.map',
-  'vue-treeselect.css',
-  'vue-treeselect.css.map',
-  'vue-treeselect.min.js',
-  'vue-treeselect.min.css',
+  'vue-treeview.js',
+  'vue-treeview.js.map',
+  'vue-treeview.css',
+  'vue-treeview.css.map',
+  'vue-treeview.min.js',
+  'vue-treeview.min.css',
 ]
 const actualFiles = fs.readdirSync(config.bundle.assetsRoot)
 if (!shallowEqual(expectedDistFiles.sort(), actualFiles.sort())) {
@@ -27,12 +27,12 @@ function shouldReplaceEnvOrNot(expected, fileName) {
     throw new Error('The bundle file was not built correctly.')
   }
 }
-shouldReplaceEnvOrNot(false, 'vue-treeselect.js')
-shouldReplaceEnvOrNot(true, 'vue-treeselect.min.js')
+shouldReplaceEnvOrNot(false, 'vue-treeview.js')
+shouldReplaceEnvOrNot(true, 'vue-treeview.min.js')
 
 function shouldReplaceCssEasings(fileName) {
   const source = readFile(fileName)
   return source.includes('cubic-bezier(')
 }
-shouldReplaceCssEasings('vue-treeselect.css')
-shouldReplaceCssEasings('vue-treeselect.min.css')
+shouldReplaceCssEasings('vue-treeview.css')
+shouldReplaceCssEasings('vue-treeview.min.css')
