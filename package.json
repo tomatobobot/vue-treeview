@@ -1,6 +1,6 @@
 {
   "name": "@tomatobobot/vue-treeview",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A treeview component with nested options support for Vue.js",
   "author": "Riophae Lee <riophaelee@gmail.com>",
   "license": "MIT",
